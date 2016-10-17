@@ -1,53 +1,69 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React, {Componant} from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
   Text,
-  View
+  View,
+  AppRegistry,
+  StyleSheet
 } from 'react-native';
 
-export default class stopwatch extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Yo!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+var StopWatch = React.createClass ({
+  render: function() {
+    return <View>
+      <View>
+        <View>
+          <Text>
+            00:00.00
+          </Text>
+        </View>
+        <View>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+        {this.startStopButton()}
+        {this.lapButton()}
+
+        </View>
+      </View>
+
+      <View>
+        <Text>
+          I am a list Laps
+        </Text>
+
+      </View>
+
+    </View>
+},
+  startStopButton: function() {
+    return   <View>
+      <Text>
+        Start
+      </Text>
+    </View>
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  lapButton: function() {
+    return <View>
+    <Text>
+      Lap
+    </Text>
+  </View>
+
+}
 });
 
-AppRegistry.registerComponent('stopwatch', () => stopwatch);
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'stretch'
+  },
+  header: {
+    flex: 1
+  },
+  footer: {
+    flex: 1
+  }
+});
+
+
+
+
+
+AppRegistry.registerComponent('stopwatch', () => StopWatch);
